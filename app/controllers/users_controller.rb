@@ -7,6 +7,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def edit
+    @user = User.new
+  end
+  
+  def update
+    if @user.update(user_params)
+      # 保存に成功した場合はトップページへリダイレクト
+      redirect_to root_path , notice: 'メッセージを編集しました'
+    else
+      # 保存に失敗した場合は編集画面へ戻す
+      render 'edit'
+    end
+  end
+  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -20,7 +34,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
+    params.require(:user).permit(:name, :email, :password, :prof, :location,
                                  :password_confirmation)
   end
 end
