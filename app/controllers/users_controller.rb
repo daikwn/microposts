@@ -8,15 +8,15 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.new
+    @user = User.find(params[:id])
   end
   
   def update
-    if @user.update(user_params)
-      # 保存に成功した場合はトップページへリダイレクト
-      redirect_to @user , notice: '編集しました'
+    @user = User.find(params[:id])
+    if @user.update(edit_params)
+       redirect_to @user
+      # 更新に成功したときの処理
     else
-      # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
     end
   end
@@ -31,10 +31,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_params
+     params.require(:user).permit(:name, :email, :prof, :location)
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :prof, :location,
+    params.require(:user).permit(:name, :email, :password, 
                                  :password_confirmation)
   end
 end
