@@ -1,6 +1,18 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
-
-<%= link_to "編集", edit_user_path(@user.id), :class => "btn btn-default btn-xs" %>
+</br>
+<div class="row">
+	<div class="col-xs-6 col-md-3">
+		<div class="thumbnail">
+		  <div class="media">
+		    <a class="media-left" href="#">
+        <%= gravatar_for @user %>
+        </a>
+      </div>
+			
+			<div class="caption">
+				<h3><%= @user.name %></h3>
+				<p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><%= @user.location %></p>
+				<p><%= @user.prof %></p>
+			</div>
+		</div>
+	</div>
+</div>
