@@ -1,4 +1,6 @@
-</br>
+
+<h1>EDIT PROFILE</h1>
+
 <%= form_for(@user, html: {class: "form-horizontal"}) do |f| %>
 
     <div class="form-group">
@@ -30,8 +32,23 @@
 	</div>
 	
 	<div class="form-group">
+		<label for="Pass" class="col-sm-2 control-label">PASSWORD</label>
+		<div class="col-sm-10">
+			<%= f.password_field :password, class: "form-control", id: "Pass" %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="Pass_con" class="col-sm-2 control-label">CONFIRM</label>
+		<div class="col-sm-10">
+			<%= f.password_field :password_confirmation, class: "form-control", id: "Pass_con" %>
+		</div>
+	</div>
+
+	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 			<%= f.submit "update profile",class: "btn btn-sm btn-primary" %>
 		</div>
 	</div>
 <% end %>
+
