@@ -1,18 +1,18 @@
-</br>
 <div class="row">
-	<div class="col-xs-6 col-md-3">
-		<div class="thumbnail">
-		  <div class="media">
-		    <a class="media-left" href="#">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
         <%= gravatar_for @user %>
-        </a>
-      </div>
-			
-			<div class="caption">
-				<h3><%= @user.name %></h3>
-				<p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><%= @user.location %></p>
-				<p><%= @user.prof %></p>
-			</div>
-		</div>
-	</div>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+    <% end %>
+  </div>
 </div>
