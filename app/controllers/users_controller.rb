@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action: authenticate_user
+  
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
@@ -42,4 +44,12 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, 
                                  :password_confirmation)
   end
+  
+  def authenticate_user
+      @user = User.find(params[:id])
+      if @user != current_user
+         redirect_to root_path
+      end
+  end
+  
 end
