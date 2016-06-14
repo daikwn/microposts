@@ -10,7 +10,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-  def edit
+  def followings
+    @user = User.find(params[:followed_id])
+  end
+  
+  def followers
+    @user = User.find(params[:follower_id])
+　end
+　
+　def edit
     @user = User.find(params[:id])
   end
   
@@ -33,13 +41,13 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  private
 
   def edit_params
      params.require(:user).permit(:name, :email, :prof, :location)
   end
-
-  private
-
+  
   def user_params
     params.require(:user).permit(:name, :email, :password, 
                                  :password_confirmation)
