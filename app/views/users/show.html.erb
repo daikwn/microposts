@@ -6,10 +6,9 @@
         <%= @user.name %>
       </h1>
     </section>
-      <div class="btn-group" role="group">
-	　　  <a href="#" class="btn btn-info active" role="button">フォロー</a>
-	　　  <a href="#" class="btn btn-info active" role="button">フォロワー</a>
-	    </div>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
