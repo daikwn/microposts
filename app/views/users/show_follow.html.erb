@@ -18,25 +18,26 @@
       <% end %>
     </section>
   </aside>
+  
   <div class="col-md-8">
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users follow">
         <div class="col-md-8">
            <% if @users.any? %>
-          <div class="user_avatars">
+           <div class="user_avatars">
             <% @users.each do |f| %>
-            <div><%= link_to gravatar_for(f, size: 40), f %></div>
-            <ul style="list-style:none;">
-              <li style="font-size: 2em;">
-                <%= f.name %>
-              </li>
-              <li>
-                <%= f.email %>
+            <ul class="list-group">
+              <li class="list-group-item" >
+                <div id="follow_thum"><%= link_to gravatar_for(f, size: 40), f %></div>
+                <div id="follow_text">
+                  <%= f.name %></br>
+                  <small><%= f.email %></small>
+                </div>
               </li>
             </ul>
             <% end %>
-          </div>
+           </div>
           <% end %>
         </div>
       </ul>

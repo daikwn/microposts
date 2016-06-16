@@ -178,6 +178,7 @@ aside {
   }
 }
 
+
 .gravatar_edit {
   margin-top: 15px;
 }
@@ -217,7 +218,15 @@ aside {
 }
 
 .users.follow {
-  padding: 0;
+  padding: 0pt;
+  #follow_thum{
+    width: 50px;
+    padding: auto;
+  }
+  #follow_text{
+    padding: 0pt;
+    margin-left: 50px;
+  }
 }
 
 
