@@ -23,8 +23,6 @@ class User < ActiveRecord::Base
                                     dependent:   :destroy
   has_many :follower_users, through: :follower_relationships, source: :follower
   
-  has_many :following, through: :following_relationships,  source: :followed
-  has_many :followers, through: :following_relationships, source: :follower
   
   # 他のユーザーをフォローする
   def follow(other_user)
